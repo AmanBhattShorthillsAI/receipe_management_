@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block start %}
+
+<table class="container">
+  <tr>
+    <th>S No.</th>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+  {% for people in peoples %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{people.name}}</td>
+    <td>{{people.age}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<p>
+  {% if "cucumber" in vegetables %} 
+  Yes Available 
+  {% else %} 
+  Not Available 
+  {% endif %}
+</p>
+
+{{vegetables.firstof}} 
+
+{% endblock %}
