@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block start %}
+<div class="container mt-5">
+  {% csrf_token %}
+    <h4>Rank: {{current_rank}}</h4>
+    <h4>Total: {{total_marks.total_marks}}</h4>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for subj in queryset %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td><b>{{subj.subject.subject_name}}</b></td>
+        <td>{{subj.marks}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
